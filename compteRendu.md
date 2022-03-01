@@ -25,76 +25,7 @@ fils n°1
 fils n°1
 fils n°1
 fils n°1
-fils n°2
-fils n°2
-fils n°2
-fils n°2
-fils n°2
-fils n°2
-fils n°2
-fils n°2
-fils n°2
-fils n°2
-fils n°3
-fils n°3
-fils n°3
-fils n°3
-fils n°3
-fils n°3
-fils n°3
-fils n°3
-fils n°3
-fils n°3
-fils n°4
-fils n°4
-fils n°4
-fils n°4
-fils n°4
-fils n°4
-fils n°4
-fils n°4
-fils n°4
-fils n°4
-fils n°5
-fils n°5
-fils n°5
-fils n°5
-fils n°5
-fils n°5
-fils n°5
-fils n°5
-fils n°5
-fils n°5
-fils n°6
-fils n°6
-fils n°6
-fils n°6
-fils n°6
-fils n°6
-fils n°6
-fils n°6
-fils n°6
-fils n°6
-fils n°7
-fils n°7
-fils n°7
-fils n°7
-fils n°7
-fils n°7
-fils n°7
-fils n°7
-fils n°7
-fils n°7
-fils n°8
-fils n°8
-fils n°8
-fils n°8
-fils n°8
-fils n°8
-fils n°8
-fils n°8
-fils n°8
-fils n°8
+[...]
 fils n°9
 fils n°9
 fils n°9
@@ -187,5 +118,22 @@ Makefile           zombie.c
 multiple_fork.c    zombie.exe
 ```
 
+#### Exercice 7
+
+j'ai rajouté un 
+```c
+switch(fork())
+```
+afin de prendre en compte la troisième commande. J'ai ainsi obtenu l'output suivant : 
+
+```
+[robin@RG-Recoil-III-GTX td03]$ ./shell_exec.exe 
+compteRendu.md   exec_prop-aux.exe  exec_prop.exe  fcat.exe  multiple_fork.c    orphan.c    README.md        shell_exec.c    shell_system.c    TESTSAVE  zombie.exe
+exec_prop-aux.c  exec_prop.c        fcat.c         Makefile  multiple_fork.exe  orphan.exe  secret_file.txt  shell_exec.exe  shell_system.exe  zombie.c
+robin    tty1         2022-02-28 23:51 (:0)
+```
+On remarque que le dossier affiché n'est pas ~ car la commande cd est exécutée dans un autre processus.
+
 ### Extension de shell_exec
 
+Malheureusement pas fini mon prompt apparaît correctement mais la commande que je passe en scanf s'exécute en boucle lorsque j'appuie sur enter :/

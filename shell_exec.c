@@ -22,10 +22,12 @@ int main(int argc, char const *argv[])
             exit(0);
         default:
             execlp("cd", "", NULL);
+            wait(NULL);
             break;
         }        
     default:
         execlp("ls", "-ls", NULL);
+        wait(NULL);
         break;
     }
     return 0;
