@@ -128,3 +128,64 @@ robin      19445  0.0  0.0   2504   912 pts/1    S+   11:21   0:00 ./zombie.exe
 robin      19446  0.0  0.0      0     0 pts/1    Z+   11:21   0:00 [zombie.exe] <defunct>
 robin      19456  0.0  0.0   6692  2680 pts/2    S+   11:21   0:00 grep zombie.exe
 ```
+### Orphelin
+
+#### Exercice 4
+
+output du processus pid 1 dans ps aux, il s'agit du processu init.
+
+```
+[robin@robin-recoil3gtx15 td03]$ ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0 185336  5948 ?        Ss   09:37   0:01 /sbin/init splash
+```
+
+## Propriétés des primitives de la famille execXX()
+
+#### Exercice 5
+
+Avec fork() on peut constater que le buffer de sortie est bien le même car l'affichage dans la console de deux messages sur deux threads différents s'effectue simultanément lors du flush du buffer par un 
+```c 
+printf("\n");
+```
+
+ce qui donne l'output suivant :
+```
+[robin@robin-recoil3gtx15 td03]$ ./exec_prop.exe 
+Child : 28912, Father : 28911
+```
+On constate aussi que leur pid sont différents.
+
+l'exécution suite à l'implémentation de la fonction execlp produit le résultat suivant : 
+
+```
+[robin@robin-recoil3gtx15 td03]$  ./exec_prop.exe 
+Child : 30529, Father : 30528
+exec call pid : 30528, argv[0] : exec_prop-aux
+```
+
+## Le Shell et la fonction system()
+
+### Principe d'exécution du Shell
+
+Exercice 6
+
+Grâce à deux appels à execlp dans respectivement un processus père et un processus fils il est possible de lancer les commandes comme dans le shell.
+
+```
+$ ./shell_exec.exe 
+aitelec  tty2         2022-03-01 09:38 (:1)
+aitelec  pts/3        2022-03-01 12:42 (:1.0)
+compteRendu.md     multiple_fork.exe
+exec_prop-aux.c    orphan.c
+exec_prop-aux.exe  orphan.exe
+exec_prop.c        README.md
+exec_prop.exe      secret_file.txt
+fcat.c             shell_exec.c
+fcat.exe           shell_exec.exe
+Makefile           zombie.c
+multiple_fork.c    zombie.exe
+```
+
+### Extension de shell_exec
+

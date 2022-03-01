@@ -6,21 +6,22 @@
 
 int main(int argc, char const *argv[])
 {
-    int pid;
-    switch (pid = fork())
+
+    switch (fork())
     {
     case -1:
         perror("fork");
         exit(1);
-
     case 0:
-        printf("[¬º-°]¬\n");
-        sleep(1);
+        for (int i = 0; i < 5; i++)
+        {
+            sleep(1);
+            printf("My father is %d\n", getppid());
+        }
         exit(0);
     default:
-        sleep(5);
-        wait(NULL);
-        break;
+        printf("I am the father %d\n", getpid());
+        exit(0);
     }
     return 0;
 }
