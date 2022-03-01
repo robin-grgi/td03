@@ -136,4 +136,4 @@ On remarque que le dossier affiché n'est pas ~ car la commande cd est exécuté
 
 ### Extension de shell_exec
 
-Malheureusement pas fini mon prompt apparaît correctement mais la commande que je passe en scanf s'exécute en boucle lorsque j'appuie sur enter :/
+Malheureusement pas fini mon prompt apparaît correctement mais la commande que je passe en scanf s'exécute en boucle lorsque j'appuie sur enter :/ 
